@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-
+const cors = require("cors")
 
 require('dotenv').config();
 
 // Initialize Express app
 const app = express();
 app.use(express.json());
-
+app.use(cors())
 // Serve static files from the 'uploads' directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
